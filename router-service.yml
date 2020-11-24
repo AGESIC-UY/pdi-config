@@ -1,0 +1,142 @@
+server:
+  port: 15000
+
+spring:
+  jmx:
+    default-domain: pdi-router-service
+  aop:
+    proxy-target-class: true
+
+eureka:
+  client:
+    healthcheck:
+      enabled: false
+
+management:
+  security:
+    enabled: false
+
+webproxy-service:
+  ribbon:
+    ConnectTimeout: 3000
+    ReadTimeout: 60000
+
+keystore:
+  name: clientkeystore.jks
+  password: CONTRASENIA
+
+trustore:
+  name: trustore.jks
+  password: CONTRASENIA
+
+degradation:
+  count: 15
+
+http:
+  pool:
+    maxPerRoute: 10
+  defaultTimeout: 10
+
+hystrix:
+   command:
+      ProcessSoap:
+         execution:
+            isolation:
+               thread:
+                  timeoutInMilliseconds: 600000
+         circuitBreaker:
+            requestVolumeThreshold: 20
+            sleepWindowInMilliseconds: 60000
+   threadpool:
+      ProcessSoap:
+         coreSize: 30
+         maximumSize: 30
+         maxQueueSize: 50
+         queueSizeRejectionThreshold: 50
+
+application:
+  accessManager:
+    enabled: true
+  copyBody:
+    enabled: true
+  router:
+    timeout: 60
+  git:
+    localPath: /tmp/pdi-data/
+    remotePath: http://{server-name}/plataforma/pdi-data.git
+    fileRoutes: rutas.json
+    username: USUARIO
+    password: CONTRASENIA
+
+logging:
+  level:
+    org:
+      springframework: ERROR
+      hibernate: ERROR
+      apache: ERROR
+      eclipse: ERROR
+    com:
+      netflix: ERROR
+      giffing: ERROR
+    uy:
+      gub:
+        agesic: DEBUG
+
+---
+spring:
+  profiles: desa
+
+application:
+  git:
+    fileRoutes: rutas_dev.json
+
+logging:
+    level:
+        uy.gub.agesic.pdi.services.router.soap: 'DEBUG'
+        uy.gub.agesic.pdi.services.router.access: 'DEBUG'
+        uy.gub.agesic.pdi.services.router.controller: 'INFO'
+        uy.gub.agesic.pdi.services.httpproxy.business: 'INFO'
+
+---
+spring:
+  profiles: qa
+
+application:
+  accessManager:
+    enabled: true
+  copyBody:
+    enabled: true
+  git:
+    fileRoutes: rutas_qa.json
+
+---
+spring:
+  profiles: uat
+
+application:
+  git:
+    localPath: /tmp/pdi-data/
+    fileRoutes: rutas_uat.json
+    remotePath: http://{server-name}/plataforma/pdi-data.git
+    username: USUARIO
+    password: CONTRASENIA
+
+---
+spring:
+  profiles: test
+
+application:
+  git:
+    localPath: /tmp/pdi-data/
+    fileRoutes: rutas_test.json
+    remotePath: http://{server-name}/plataforma/pdi-data.git
+    username: USUARIO
+    password: CONTRASENIA
+
+---
+spring:
+  profiles: prep
+
+---
+spring:
+  profiles: prod

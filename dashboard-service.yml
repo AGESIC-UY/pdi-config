@@ -1,0 +1,55 @@
+server:
+  port: 18000
+
+spring:
+  jmx:
+    default-domain: pdi-dashboard-service
+  boot:
+    admin:
+      context-path: /admin
+      turbine:
+        location: http://localhost:18000
+      client:
+        metadata:
+          user.name: USUARIO
+          user.password: CONTRASENIA
+  aop:
+    proxy-target-class: true
+
+eureka:
+  client:
+    healthcheck:
+      enabled: false
+
+turbine:
+  clusterNameExpression: new String("default")
+  appConfig: ROUTER-SERVICE
+  combineHostPort: true
+
+management:
+  security:
+    enabled: false
+
+---
+spring:
+  profiles: desa
+
+---
+spring:
+  profiles: qa
+
+---
+spring:
+  profiles: uat
+
+---
+spring:
+  profiles: test
+
+---
+spring:
+  profiles: prep
+
+---
+spring:
+  profiles: prod

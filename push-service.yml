@@ -1,0 +1,287 @@
+server:
+  port: 23000
+
+error:
+  whitelabel:
+    enabled: false
+
+spring:
+  jmx:
+    default-domain: push-service
+  aop:
+    proxy-target-class: true
+
+eureka:
+  client:
+    healthcheck:
+      enabled: false
+
+management:
+  security:
+    enabled: false
+
+application:
+  accessPDI:
+    enabled: false
+  version: 1.0.0
+  client:
+    config:
+      file: file:/tmp/pdi-config/pge-config.xml
+  git:
+    localPath: /tmp/pdi-config/
+    remotePath: http://{server-name}/plataforma/pdi-data.git
+    username: USUARIO
+    password: CONTRASENIA    
+  push:
+    master: true
+    clusterMembers: 2
+    ws:
+      connect:
+        timeout: 1000
+      request:
+        timeout: 30000
+    controller:
+      sleepTime: 30000
+    ts:
+      sleepTime: 10000
+      count: 2
+    sleepTimePolicy:
+      diasMultiplicador: 1
+      maxReintentosExponencial: 15
+
+keystore:
+  name: clientkeystore.jks
+  password: CONTRASENIA
+
+trustore:
+  name: trustore.jks
+  password: CONTRASENIA
+
+logging:
+  level:
+    org:
+      springframework: ERROR
+      hibernate: ERROR
+      apache: ERROR
+      eclipse: ERROR
+      jgroups: ERROR
+    com:
+      netflix: ERROR
+      giffing: ERROR
+    uy:
+      gub:
+        agesic: INFO
+
+jgroups:
+  udp:
+    mcast_addr: 235.1.2.3
+    mcast_port: 55550
+
+infinispan:
+  locking:
+    timeout: 60000
+    
+---
+spring:
+  profiles: desa1
+  data:
+    mongodb:
+      uri: mongodb://192.168.98.102:27017/pys
+
+jgroups:
+  udp:
+    mcast_addr: 235.1.10.10
+    mcast_port: 55560
+
+application:
+  push:
+    master: true
+
+---
+spring:
+  profiles: desa2
+  data:
+    mongodb:
+      uri: mongodb://192.168.98.102:27017/pys
+
+jgroups:
+  udp:
+    mcast_addr: 235.1.10.10
+    mcast_port: 55560
+
+application:
+  push:
+    master: false
+
+---
+spring:
+  profiles: qa1
+  data:
+    mongodb:
+      uri: mongodb://192.168.98.105:27017/pys
+
+application:
+  accessPDI:
+    enabled: false
+  push:
+    master: true
+    controller:
+      sleepTime: 30000
+    ts:
+      sleepTime: 10000
+      count: 2
+    sleepTimePolicy:
+      diasMultiplicador: 1
+      maxReintentosExponencial: 15
+
+jgroups:
+  udp:
+    mcast_addr: 235.1.20.20
+    mcast_port: 55570
+
+---
+spring:
+  profiles: qa2
+  data:
+    mongodb:
+      uri: mongodb://192.168.98.105:27017/pys
+
+application:
+  accessPDI:
+    enabled: false
+  push:
+    master: false
+    controller:
+      sleepTime: 30000
+    ts:
+      sleepTime: 10000
+      count: 2
+    sleepTimePolicy:
+      diasMultiplicador: 1
+      maxReintentosExponencial: 15
+
+jgroups:
+  udp:
+    mcast_addr: 235.1.20.20
+    mcast_port: 55570
+
+---
+spring:
+  profiles: uat1
+  data:
+    mongodb:
+      uri: mongodb://192.168.25.102:27017/pys?waitQueueMultiple=10
+
+jgroups:
+  udp:
+    mcast_addr: 235.1.30.30
+    mcast_port: 55580
+
+application:
+  push:
+    master: true
+
+---
+spring:
+  profiles: uat2
+  data:
+    mongodb:
+      uri: mongodb://192.168.25.102:27017/pys?waitQueueMultiple=10
+
+jgroups:
+  udp:
+    mcast_addr: 235.1.30.30
+    mcast_port: 55580
+
+application:
+  push:
+    master: false
+    
+---
+spring:
+  profiles: test1
+
+jgroups:
+  udp:
+    mcast_addr: 235.1.40.40
+    mcast_port: 55590
+
+application:
+  push:
+    master: true
+    
+---
+spring:
+  profiles: test2
+
+jgroups:
+  udp:
+    mcast_addr: 235.1.40.40
+    mcast_port: 55590
+
+application:
+  push:
+    master: false
+    
+---
+spring:
+  profiles: prep1
+
+jgroups:
+  udp:
+    mcast_addr: 235.1.50.50
+    mcast_port: 55600
+
+application:
+  push:
+    master: true
+    
+---
+spring:
+  profiles: prep2
+
+jgroups:
+  udp:
+    mcast_addr: 235.1.50.50
+    mcast_port: 55600
+
+application:
+  push:
+    master: false
+    
+---
+spring:
+  profiles: prod1
+
+jgroups:
+  udp:
+    mcast_addr: 235.1.60.60
+    mcast_port: 55700
+
+application:
+  push:
+    master: true
+    
+---
+spring:
+  profiles: prod2
+
+jgroups:
+  udp:
+    mcast_addr: 235.1.60.60
+    mcast_port: 55700
+
+application:
+  push:
+    master: false
+    
+---
+spring:
+  profiles: local2
+
+server:
+  port: 23001
+
+application:
+  push:
+    master: false

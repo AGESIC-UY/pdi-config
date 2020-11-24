@@ -1,0 +1,146 @@
+server:
+  port: 20000
+
+error:
+  whitelabel:
+    enabled: false
+
+wicket:
+  core:
+    settings:
+      general:
+        configuration-type: development
+
+spring:
+  jmx:
+    default-domain: pdi-backoffice
+  aop:
+    proxy-target-class: true
+
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+
+management:
+  security:
+    enabled: false
+
+application:
+  version: 1.0.0
+  filasPorPagina: 10,20,50,100
+  mensajeConfirmacion: Mensaje.Confirmacion
+  mensajeReconfirmacion: Mensaje.Reconfirmacion
+  direccionBasePorDefecto: http://localhost:9898
+  git:
+    localPath: /tmp/pdi-data/
+    remotePath: http://{server-name}/AGESIC-PDI/pdi-data.git
+    fileUsuarios: usuarios.json
+    username: USUARIO
+    password: CONTRASENIA
+
+logging:
+  level:
+    org:
+      springframework: ERROR
+      hibernate: ERROR
+      apache: ERROR
+      eclipse: ERROR
+    com:
+      netflix: ERROR
+      giffing: ERROR
+    uy:
+      gub:
+        agesic: TRACE
+
+---
+spring:
+  profiles: desa
+  data:
+    mongodb:
+      uri: mongodb://192.168.98.102:27017/pys
+
+application:
+  git:
+    fileUsuarios: usuarios_dev.json
+
+---
+spring:
+  profiles: qa
+  data:
+    mongodb:
+      uri: mongodb://192.168.98.105:27017/pys
+
+application:
+  git:
+    fileUsuarios: usuarios_qa.json
+
+wicket:
+  core:
+    settings:
+      general:
+        configuration-type: deployment
+
+---
+spring:
+  profiles: uat
+
+application:
+  git:
+    fileUsuarios: usuarios_uat.json
+    localPath: /tmp/pdi-data/
+    remotePath: http://{server-name}/plataforma/pdi-data.git
+    username: USUARIO
+    password: CONTRASENIA
+
+wicket:
+  core:
+    settings:
+      general:
+        configuration-type: deployment
+
+---
+spring:
+  profiles: test
+
+application:
+  git:
+    fileUsuarios: usuarios_test.json
+    localPath: /tmp/pdi-data/
+    remotePath: http://{server-name}/plataforma/pdi-data.git
+    username: USUARIO
+    password: CONTRASENIA
+
+wicket:
+  core:
+    settings:
+      general:
+        configuration-type: deployment
+
+---
+spring:
+  profiles: prep
+
+application:
+  git:
+    fileUsuarios: usuarios_prep.json
+
+wicket:
+  core:
+    settings:
+      general:
+        configuration-type: deployment
+
+---
+spring:
+  profiles: prod
+
+application:
+  git:
+    fileUsuarios: usuarios_prod.json
+
+wicket:
+  core:
+    settings:
+      general:
+        configuration-type: deployment

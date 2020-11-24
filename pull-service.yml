@@ -1,0 +1,99 @@
+server:
+  port: 22000
+
+error:
+  whitelabel:
+    enabled: false
+
+spring:
+  jmx:
+    default-domain: pull-service
+  aop:
+    proxy-target-class: true
+
+eureka:
+  client:
+    healthcheck:
+      enabled: false
+
+management:
+  security:
+    enabled: false
+
+application:
+  pull-service:
+    https-port: 22443
+    key-store: classpath:keystore.jks
+    key-store-password: CONTRASENIA
+    key-password: CONTRASENIA
+  accessPDI:
+    enabled: false
+  version: 1.0.0
+
+keystore:
+  name: clientkeystore.jks
+  password: CONTRASENIA
+
+trustore:
+  name: trustore.jks
+  password: CONTRASENIA
+
+logging:
+  level:
+    org:
+      springframework: ERROR
+      hibernate: ERROR
+      apache: ERROR
+      eclipse: ERROR
+    com:
+      netflix: ERROR
+      giffing: ERROR
+    uy:
+      gub:
+        agesic: INFO
+
+---
+spring:
+  profiles: desa
+  data:
+    mongodb:
+      uri: mongodb://192.168.98.102:27017/pys
+
+application:
+  git:
+    fileUsuarios: usuarios_dev.json
+
+---
+spring:
+  profiles: qa
+  data:
+    mongodb:
+      uri: mongodb://192.168.98.105:27017/pys
+
+application:
+  git:
+    fileUsuarios: usuarios_qa.json
+  accessPDI:
+    enabled: true    
+
+wicket:
+  core:
+    settings:
+      general:
+        configuration-type: deployment
+
+---
+spring:
+  profiles: uat
+
+---
+spring:
+  profiles: test
+
+---
+spring:
+  profiles: prep
+
+---
+spring:
+  profiles: prod

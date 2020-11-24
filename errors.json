@@ -1,0 +1,161 @@
+[ {
+  "code" : "RUTADEGNOPERMITS",
+  "description" : "ruta degradada sin permitidos",
+  "message" : "La ruta se encuentra degradada y no tiene permiso para nuevas peticiones.."
+}, {
+  "code" : "RUTADEGNOSEMAPHORE",
+  "description" : "ruta degradada sin semáforo",
+  "message" : "La ruta se encuentra degradada y no ha sido creado ningún semáforo."
+}, {
+  "code" : "RUTANOENCONTRADA",
+  "description" : "no se encuentra la ruta físca",
+  "message" : "No se encuentra la ruta física asociada a la ruta lógica ingresada."
+}, {
+  "code" : "ERRORPROCHEADER",
+  "description" : "Error al procesar el cabezal",
+  "message" : "Error al procesar el cabezal, xml inválido."
+}, {
+  "code" : "ERRORCHANGEMUSTUND",
+  "description" : "Error interno",
+  "message" : "Ha ocurrido un error interno realizando la transformación changeMustunderstand."
+}, {
+  "code" : "ERRORCHANGEWSATO",
+  "description" : "Error interno",
+  "message" : "Ha ocurrido un error interno realizando la transformación changeWsaTo."
+}, {
+  "code" : "ERRORCHANGEWACTION",
+  "description" : "Error interno",
+  "message" : "Ha ocurrido un error interno realizando la transformación changeWsaActionsResponse."
+}, {
+  "code" : "ERRORSOAPFAULTTEMPLATE",
+  "description" : "Error interno",
+  "message" : "Ha ocurrido un error interno procesando soapFaultTemplate."
+}, {
+  "code" : "ERRORDECODESOAP",
+  "description" : "Error interno",
+  "message" : "Ha ocurrido al decodificar el mensaje Soap."
+}, {
+  "code" : "PATHXSLHEADER",
+  "description" : "Error interno",
+  "message" : "Ha ocurrido un error interno."
+}, {
+  "code" : "PATHXSLMUSTUNDERSAND",
+  "description" : "Error interno",
+  "message" : "Ha ocurrido un error interno."
+}, {
+  "code" : "PATHXSLWSATO",
+  "description" : "Error interno",
+  "message" : "Ha ocurrido un error interno."
+}, {
+  "code" : "PATHXSLSOAPFAULT",
+  "description" : "Error interno",
+  "message" : "Ha ocurrido un error interno."
+}, {
+  "code" : "ERRORINVALIDSOAP",
+  "description" : "Error, formato request inválido",
+  "message" : "El request debe ser con formato SOAP."
+} , {
+  "code" : "ERRORTIMEOUT",
+  "description" : "Error, timeout",
+  "message" : "Error, timeout."
+} , {
+  "code" : "ERRORGETKTSTORE",
+  "description" : "Error al obtener keystore y trustore",
+  "message" : "Error al obtener keystore y trustore."
+} , {
+  "code" : "ERRORCONNECTED",
+  "description" : "Error, conexión rehusada",
+  "message" : "Error, conexión rehusada."
+} , {
+  "code" : "ERRORUNKNOWNHOST",
+  "description" : "Error, nombre o host desconocido",
+  "message" : "Error, nombre o host desconocido."
+} , {
+  "code" : "ERRORTRUSTORE",
+  "description" : "Error, trustore no encontrado",
+  "message" : "Error, trustore no encontrado."
+} , {
+  "code" : "UNSUPPORTEDENCODING",
+  "description" : "Error, codificación de caracteres",
+  "message" : "Error, la codificación de caracteres no es compatible."
+} , {
+  "code" : "ERRORCODESOAP",
+  "description" : "Error interno",
+  "message" : "Ha ocurrido al codificar el mensaje Soap."
+} , {
+  "code" : "ERRORPROCSOAP",
+  "description" : "Error interno",
+  "message" : "Ha ocurrido un error al procesar el mensaje Soap."
+} , {
+  "code" : "ERRORHOSTPORT",
+  "description" : "IllegalArgumentException",
+  "message" : "Host o puerto incorrecto."
+} , {
+  "code" : "ERROREXPIREDCERTIFICATE",
+  "description" : "Error, el certificado ha expirado",
+  "message" : "Error, el certificado ha expirado."
+} , {
+  "code" : "ERRORVALIDATINGCERTIFICATE",
+  "description" : "Error al validar el certificado",
+  "message" : "Error al validar el certificado."
+} , {
+  "code" : "ERRORCONNECTIONSSL",
+  "description" : "Error de conexión SSL",
+  "message" : "Error de conexión SSL."
+} , {
+  "code" : "ERRORMATCHROOTELEMENT",
+  "description" : "El elemento del body no corresponde con el definido en el topico",
+  "message" : "El elemento del body no corresponde con el definido en el topico."
+} , {
+  "code" : "ERRORMATCHDN",
+  "description" : "El DN no corresponde con el publisher o subscriptor",
+  "message" : "El DN es invalido."
+} , {
+  "code" : "ERRORMATCHPUBLISHER",
+  "description" : "Publisher invalido",
+  "message" : "El publisher es invalido."
+} , {
+  "code" : "ERRORMATCHTOPIC",
+  "description" : "Topico invalido",
+  "message" : "El Topico es invalido."
+} , {
+  "code" : "ERRORMATCHPRODTOPICO",
+  "description" : "Relacion Topico Productor invalido",
+  "message" : "Relacion Topico Productor no encontrado."
+} , {
+  "code" : "999",
+  "description" : "Error desconocido",
+  "message" : "Error desconocido:"
+} , {
+  "code" : "CONTENTTYPEERROR",
+  "description" : "Formato de respuesta desconocido",
+  "message" : "Formato de respuesta desconocido:"
+}  , {
+  "code" : "ERRORMATCHSUSCRIBER",
+  "description" : "Suscriptor no encontrado",
+  "message" : "Suscriptor no encontrado."
+} , {
+  "code" : "ERRORMATCHSUSCTOPICO",
+  "description" : "Relacion suscriptor topico no encontrado",
+  "message" : "Relacion suscriptor topico no encontrado."
+} , {
+  "code" : "HTTPSONLY",
+  "description" : "Solo se acepta HTTPS",
+  "message" : "Solo se acepta HTTPS."
+}  , {
+  "code" : "ERRORSUSCNOHAB",
+  "description" : "Suscriptor no habilitado",
+  "message" : "Suscriptor no habilitado"
+} , {
+  "code" : "ERRORPRODNOHAB",
+  "description" : "Productor no habilitado",
+  "message" : "Productor no habilitado"
+} , {
+  "code" : "ERRORTOPICONOHAB",
+  "description" : "Topico no habilitado",
+  "message" : "Topico no habilitado"
+} , {
+  "code" : "INVALIDFILTERDATA",
+  "description" : "Fueron ingresados datos invalidos",
+  "message" : "Fueron ingresados datos invalidos"
+} ]
